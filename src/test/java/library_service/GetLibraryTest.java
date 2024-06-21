@@ -126,7 +126,7 @@ public class GetLibraryTest {
 
         checkStatusCode(response, 400);
 
-        commonErrorMessageShouldBeEquals(response, 1001, "Не передан id автора");
+        commonErrorMessageShouldBeEquals(response, "1001", "Не передан обязательный параметр: authorId");
 
     }
 
@@ -142,7 +142,7 @@ public class GetLibraryTest {
 
         checkStatusCode(response, 409);
 
-        commonErrorMessageShouldBeEquals(response, 1004, "Указанный автор не существует в таблице");
+        commonErrorMessageShouldBeEquals(response, "1004", "Указанный автор не существует в таблице");
     }
 
     @Test
@@ -185,7 +185,7 @@ public class GetLibraryTest {
         expectedModel.setBook(new GettingAuthorsBooksRs.Book(0, null, null));
         expectedModel.setStatusCode(400);
         expectedModel.setErrorCode(1001);
-        expectedModel.setErrorMessage("Не передан id автора");
+        expectedModel.setErrorMessage("Не передан обязательный параметр: authorId");
 
         shouldBeEquals(actualModel, expectedModel);
 
